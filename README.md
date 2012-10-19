@@ -1,5 +1,4 @@
-chris.sedlmayr.co.uk
-====================
+#chris.sedlmayr.co.uk
 
 * Internationalization, specifically translations
 * Auto-deployment, based on build status
