@@ -27,7 +27,7 @@ class StaticPostRepository
     public function getPosts()
     {
         $posts = array();
-        // look at each of the file directories and read the files
+
         foreach ($this->_fileDirectories as $dir) {
             if (is_dir(__DIR__.$dir)) {
                 $this->_finder->files()->in(__DIR__.$dir)->sortByName();

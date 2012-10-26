@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sedlmayr_static_content.static_post_repository.class">Sedlmayr\Bundle\StaticContentBundle\Repository\StaticPostRepository</parameter>
+        <parameter key="finder.class">Symfony\Component\Finder\Finder</parameter>
+    </parameters>
+
+    <services>
+        <service id="finder" class="%finder.class%"></service>
+        <service id="sedlmayr_static_content.static_post_repository" class="%sedlmayr_static_content.static_post_repository.class%">
+            <call method="addFileDirectory">
+                 <argument>/../Resources/posts</argument>
+            </call>
+            <argument type="service" id="finder" />
+        </service>
+    </services>    
+</container>
