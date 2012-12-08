@@ -27,14 +27,15 @@ set  :use_sudo,         false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-set :webserver_user,    "apache"
-set :writable_dirs,     [log_path, cache_path]
+set  :webserver_user,    "apache"
+set  :writable_dirs,     [log_path, cache_path]
 # Method used to set permissions (:chmod, :acl, or :chown)
-set :permission_method, :chmod
+set  :permission_method, :chmod
 
 # Execute set permissions
-set :use_set_permissions, true
+set  :use_set_permissions, true
 
+set  :dump_assetic_assets, true
 set  :update_assets_version,    true
 after "deploy",                 "deploy:cleanup"
 # Be more verbose by uncommenting the following line
