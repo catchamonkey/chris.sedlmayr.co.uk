@@ -12,8 +12,7 @@ You could modify or create a new link_to/url_for function then modify your templ
 <p>What I have done is created a new custom routing class.<br />
 The class is invoked by configuring a route to use it, and you also tell it which URL params you want to persist.</p>
 
-<pre><code>
-dashboard:
+<pre><code>dashboard:
   url:   /dashboard
   class: ictPersistentParamRoute
   options:
@@ -27,8 +26,7 @@ If they are it will retrieve their values and merge the values to those defined 
 
 <p>This makes it very easy to add persistent params to your application without much effort!</p>
 
-<pre><code>
-class ictPersistentParamRoute extends sfRoute
+<pre><code>class ictPersistentParamRoute extends sfRoute
 {
     public function generate($params, $context = array(), $absolute = false)
     {
