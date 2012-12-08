@@ -18,7 +18,7 @@ role :app,              domain                         # This may be the same as
 role :db,               domain, :primary => true       # This is where Symfony2 migrations will run
 
 set  :keep_releases,    3
-set  :shared_children,  [log_path, cache_path, web_path + "/uploads"]
+set  :shared_children,  [log_path, web_path + "/uploads"]
 set  :shared_files,     ["app/config/parameters.yml"]
 set  :use_composer,     true
 set  :composer_options, "--verbose --prefer-dist --no-scripts"
@@ -40,6 +40,7 @@ set  :cache_warmup,        true
 set  :dump_assetic_assets, true
 set  :update_assets_version,    true
 
+before "deploy:restart",        "deploy:set_permissions"
 after "deploy",                 "deploy:cleanup"
 # Be more verbose by uncommenting the following line
 # logger.level = Logger::MAX_LEVEL
