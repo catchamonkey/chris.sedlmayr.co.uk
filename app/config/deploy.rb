@@ -35,6 +35,8 @@ set  :permission_method, :chmod
 # Execute set permissions
 set  :use_set_permissions, true
 
+set  :cache_warmup,         false
+
 set  :dump_assetic_assets, true
 set  :update_assets_version,    true
 after "deploy",                 "deploy:cleanup"
