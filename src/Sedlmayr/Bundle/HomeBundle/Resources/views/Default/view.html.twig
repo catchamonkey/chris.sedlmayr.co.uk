@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@SedlmayrLayoutBundle/Resources/public/js/highlight.pack.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets '@SedlmayrLayoutBundle/Resources/public/css/sunburst.css' %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block header %}
+    <h1>{{ post.title }}</h1>
+    <h2><a href="{{ path('post_list') }}">Chris Sedlmayr</a> <a href="http://coderwall.com/catchamonkey"><img alt="Endorse catchamonkey on Coderwall" src="http://api.coderwall.com/catchamonkey/endorsecount.png" /></a></h2>
+    <p class="date">18th July 2011</p>
+{% endblock %}
+
+{% block body %}
+{{ post.contents|raw }}
+{% endblock %}

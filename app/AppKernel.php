@@ -20,6 +20,9 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Sedlmayr\Bundle\HomeBundle\SedlmayrHomeBundle(),
+            new Sedlmayr\Bundle\LayoutBundle\SedlmayrLayoutBundle(),
+            new Infinity\Bundle\TwigExtensionsBundle\InfinityTwigExtensionsBundle(),
+            new Sedlmayr\Bundle\StaticContentBundle\SedlmayrStaticContentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

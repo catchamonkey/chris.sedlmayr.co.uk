@@ -1,0 +1,5 @@
+services:
+    infinity.twig.infinity_string_extension:
+        class: Infinity\Bundle\TwigExtensionsBundle\Twig\InfinityStringExtension
+        tags:
+            - { name: twig.extension }

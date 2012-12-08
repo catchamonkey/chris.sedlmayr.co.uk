@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% for post in posts %}
+        <h2><a href="{{ path(
+            'post_view',
+            {
+                'publishedAt':post.published_at|date('Y-m-d'),
+                'title':post.title|slugify
+            }
+        ) }}">{{ post.title }}</a> <span class="date">{{ post.published_at|date('dS M Y') }}</span></h2>
+        {% if post.excerpt is defined %}
+            <p>{{ post.excerpt }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,48 @@
+h1, h2, h3, h4, h5, h6 { 
+  font-family: Helvetica, Georgia, sans-serif;
+} 
+
+code, pre {
+  padding:0 3px 2px; 
+  color:#333; 
+  font-size:14px; 
+  font-family: "Courier New", Courier, monospace; 
+  font-weight: bold;
+}
+
+code {
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 9px;
+  line-height: 18px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+h2 a, h2 a:visited {
+    text-decoration: underline;
+    color: #08C;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 12px;
+    color: #AAA;
+    font-style: italic;
+    font-weight: normal;
+}
+
+footer {
+    margin-left: 20px;
+}

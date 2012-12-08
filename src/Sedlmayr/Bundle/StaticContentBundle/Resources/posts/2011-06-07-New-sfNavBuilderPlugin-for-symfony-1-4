@@ -1,0 +1,77 @@
+<p class="data-excerpt" style="display:none">Create your symfony menu's using a simple interface, with support for active state definitions</p>
+
+<p>I released this plugin yesterday, which offers a simple interface with which to define and render your symfony 1.4 menu's</p>
+
+<p>The plugin allows you to create a hierarchical menu, with each item having it's active state defined by;  </p>
+
+<ul>
+    <li>Current module</li>
+    <li>Current action</li>
+    <li>Parameter=value</li>
+</ul>
+
+<p>This therefore allows you to say you want an item to be active if;</p>
+
+<pre><code>
+    module = blogPost
+    action = show
+    a paramName of post_id = a paramValue of 1
+</code></pre>
+
+<h3>Basic usage example</h3>
+
+One main menu item, with 2 child items  
+
+<pre><code>
+
+    // create a menu item for the main about page
+    $homepage = new sfNavBuilderItem();
+    $homepage
+        ->setDisplayName('About Us')
+        ->setUrl(url_for('about'))
+        ->addActivateWhen(array(
+            'module' => array('about'),
+            'action' => array('index')
+        ));
+    // create a menu item for the about the team page and define the parent
+    $team = new sfNavBuilderItem();
+    $team
+        ->setDisplayName('About the Team')
+        ->setUrl(url_for('aboutTeam'))
+        ->addActivateWhen(array(
+            'module' => array('about'),
+            'action' => array('team')
+        ))
+        ->setParent($homepage);
+    // create a menu item for the about the company page and define the parent
+    $company = new sfNavBuilderItem();
+    $company
+        ->setDisplayName('About the Company')
+        ->setUrl(url_for('aboutCompany'))
+        ->addActivateWhen(array(
+            'module' => array('about'),
+            'action' => array('company')
+        ))
+        ->setParent($homepage);
+
+    // put the items into a menu instance and provide the required info
+    $this->menu = new sfNavBuilder();
+    $this->menu
+        ->setRequest($request)
+        ->setModule($this->getContext()->getModuleName())
+        ->setAction($this->getContext()->getActionName())
+        ->addItem($homepage);
+
+    // in your template you can then call the renderer
+    echo $menu->render();
+    // check out the sfNavBuilderRenderer class to see what this does
+
+</code></pre>
+
+
+<p>I have included some more complete examples of use within the readme of the project, but am happy to answer questions you have when using it.</p>
+
+<p><a href="https://github.com/catchamonkey/sfNavBuilderPlugin">Project page on github</a><br />
+<a href="http://catchamonkey.github.com/sfNavBuilderPlugin">sfNavBuilderPlugin Project site</a></p>
+
+<p>Hope you find it useful!</p>
