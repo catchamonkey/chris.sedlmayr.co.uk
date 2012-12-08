@@ -45,4 +45,9 @@ h2 a, h2 a:visited {
 
 footer {
     margin-left: 20px;
+    padding-bottom: 10px;
+}
+
+a, a:visited, a:link {
+  color: #08C;
 }
