@@ -15,14 +15,20 @@ class DefaultController extends Controller
      * @Route("/", name="post_list")
      * @Route("/feed", name="post_list_feed", defaults={"_format" = "atom"}, requirements={"_format" = "atom"})
      * @Template()
-     * @Cache(maxage="15", smaxage="15")
      */
     public function listAction()
     {
-        $repo = $this->get('sedlmayr_static_content.static_post_repository');
-        $posts = $repo->getPosts();
+        $repo       = $this->get('sedlmayr_static_content.static_post_repository');
+        $posts      = $repo->getPosts();
 
-        return array('posts' => $posts);
+        $response   = $this->render('SedlmayrHomeBundle:Default:list.html.twig', array('posts' => $posts));
+        $response->setETag(md5($response->getContent()));
+        $response->setPublic();
+        $response->setMaxAge(15);
+        $response->setSharedMaxAge(15);
+        $response->isNotModified($this->getRequest());
+
+        return $response;
     }
 
     /**
