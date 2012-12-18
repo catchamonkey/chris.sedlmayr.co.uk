@@ -5,6 +5,7 @@ namespace Sedlmayr\Bundle\HomeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 class DefaultController extends Controller
 {
@@ -14,6 +15,7 @@ class DefaultController extends Controller
      * @Route("/", name="post_list")
      * @Route("/feed", name="post_list_feed", defaults={"_format" = "atom"}, requirements={"_format" = "atom"})
      * @Template()
+     * @Cache(maxage="15", smaxage="15")
      */
     public function listAction()
     {

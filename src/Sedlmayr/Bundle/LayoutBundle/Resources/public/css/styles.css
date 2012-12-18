@@ -3,11 +3,12 @@ h1, h2, h3, h4, h5, h6 {
 } 
 
 code, pre {
-  padding:0 3px 2px; 
-  color:#333; 
-  font-size:14px; 
-  font-family: "Courier New", Courier, monospace; 
+  padding:0 3px 2px;
+  color:#333;
+  font-size:14px;
+  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
+  padding: 10px;
 }
 
 code {
