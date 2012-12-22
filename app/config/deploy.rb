@@ -45,5 +45,6 @@ set  :permission_method,        :acl
 set  :use_set_permissions,      true
 before "deploy:restart",        "deploy:set_permissions"
 
+before "symfony:assetic:dump",  "symfony:cache:clear"
 # clean up old releases
 after "deploy",                 "deploy:cleanup"
