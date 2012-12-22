@@ -22,7 +22,7 @@ set  :shared_files,             ["app/config/parameters.yml"]
 
 # composer config
 set  :use_composer,             true
-set  :composer_options,         "--verbose --prefer-dist --no-scripts"
+set  :composer_options,         "--verbose -o --prefer-dist"
 
 set  :use_sudo,                 false
 
