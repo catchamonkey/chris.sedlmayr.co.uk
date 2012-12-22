@@ -29,11 +29,12 @@ set  :use_sudo,                 false
 default_run_options[:pty] =     true
 ssh_options[:forward_agent] =   true
 
-set  :cache_warmup,             true
 
 # asset management
-set  :dump_assetic_assets,      true
+set  :assets_install,           true
 set  :update_assets_version,    true
+set  :cache_warmup,             true
+set  :dump_assetic_assets,      true
 
 set  :webserver_user,           "apache"
 set  :writable_dirs,            [log_path, cache_path]
